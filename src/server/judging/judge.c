@@ -12,7 +12,7 @@ typedef enum { false, true } bool;
 #include <string.h>
 
 int main(int argc, char* argv[]) {
-    // argv[1] is the path to the input file
+    // argv[1] is the path to the output file
     // argv[2] is the path to the folder with solution cases (end with /)
     if(argc != 4) {
         fprintf(stderr, "FAILED1 argc != 4 but is %d\n", argc);
