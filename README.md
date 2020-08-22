@@ -1,7 +1,9 @@
 ## Scripts
 `npm run serve` - Start the frontend development server and opens the home page in the default browser. Runs on port 1234 by default. Supports HMR.
 
-`npm run dev` - Compiles source files and starts the web server. Runs on port 8000 by default.
+`npm run build` - Compiles source files into the `build` folder.
+ 
+ `npm run dev` - Runs `build` script and starts the web server on the specified port (defaults to 8000).
 
 ## Judging
 
