@@ -1,0 +1,37 @@
+doctype html
+
+html(lang='en')
+    head
+        meta(charset='utf-8')
+
+        - const desc = `DESCRIPTION`
+        meta(name='description' content=desc)
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+        // OpenGraph Tags
+        meta(name='og:title' content='BlockOJ')
+        meta(name='og:description' content=desc)
+        meta(name='og:url' content='https://blockoj.com/')
+        meta(name='og:site_name' content='BlockOJ')
+        meta(name='og:locale' content='en_US')
+        meta(name='og:type' content='website')
+
+        meta(name='theme-color' content='#98CE00')
+        meta(http-equiv='cache-control' content='max-age=31557600')
+
+        // Only if we need icons
+        // script(async src='/js/fa-loader.js')
+
+        block head
+            link(rel='stylesheet' href='/scss/_base.scss')
+
+        link(rel='stylesheet' href='/../node_modules/normalize.css/normalize.css')
+
+    body
+        nav.navbar.is-fixed-top(aria-live="polite")
+            div.navbar-menu
+                div.navbar-start.link-group
+                    a.navbar-item whatever
+
+        main
+            block body

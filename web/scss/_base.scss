@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+$family-primary: 'Rubik';
+
+@import '~bulma/sass/utilities/_all';
+@import '~bulma/sass/base/_all';
+@import '~bulma/sass/components/navbar';
+
+main {
+  margin-top: $navbar-height;
+  padding: 3vw;
+}
