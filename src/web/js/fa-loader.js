@@ -1,7 +1,7 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faGithub, faLinkedinIn);
+library.add(faUser, faLock);
 
 export function loadIcons () {
     dom.i2svg({

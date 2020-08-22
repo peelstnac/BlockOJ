@@ -1,0 +1,28 @@
+extends ../layout
+
+block head
+	title BlockOJ - Log in
+	link(rel='stylesheet' href='/scss/login.scss')
+
+block body
+	div.columns.is-centered.is-vcentered
+		div.column.is-5
+			form.box(action='/login' method='POST')
+				h1.title Log in
+				div.field
+					label.label Username
+					div.control.has-icons-left
+						input.input#username(type='text' placeholder='Username' name='username' required)
+						span.icon.is-small.is-left
+							i.fas.fa-user
+				div.field
+					label.label Password
+					div.control.has-icons-left
+						input.input#password(type='password' placeholder='Password' name='password' required)
+						span.icon.is-small.is-left
+							i.fas.fa-lock
+				div.field.is-grouped
+					div.control.has-text-right
+						a.button.is-success(type='submit') Login
+					div.control.has-text-right
+						a.button.is-link.is-outlined(href='/pages/register.pug') Register

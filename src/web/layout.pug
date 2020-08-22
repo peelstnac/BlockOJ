@@ -20,7 +20,7 @@ html(lang='en')
 		meta(http-equiv='cache-control' content='max-age=31557600')
 
 		// Only if we need icons
-		// script(async src='/js/fa-loader.js')
+		script(async src='/js/fa-loader.js')
 		// script(defer src='/js/component-loader.js')
 
 		block head
@@ -31,7 +31,9 @@ html(lang='en')
 	body
 		nav.navbar.is-fixed-top(aria-live="polite")
 			div.navbar-menu
-				div.navbar-start.link-group
+				div.navbar-start
 					a.navbar-item(href='/pages/code.pug') Code
+				div.navbar-end
+					a.navbar-item(href='/pages/login.pug') Login
 
 		block body
