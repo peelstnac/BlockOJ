@@ -3,7 +3,7 @@
 	  	"module": "commonjs",
 	  	"target": "es5",
 	  	"sourceMap": true,
-	  	"outDir": "dist",
+	  	"outDir": "build",
 		"esModuleInterop": true
   	},
 	"include": [
@@ -11,6 +11,6 @@
 	],
   	"exclude": [
 	  	"node_modules/",
-		"dist/"
+		"build/"
   	]
 }
