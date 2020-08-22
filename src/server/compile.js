@@ -20,6 +20,12 @@ function compile (py, problem, callback) {
   });
   createFiles.on('exit', () => {
     // Judge
+    var judge = exec('judging/judge.out judging/out/' + id + '.txt judging/test/' + problem.number.toString() + '/ ' + problem.cases.toString(), (err, stdout, stderr) => {
+      if (err) throw err;
+      if (stderr) callback(stderr);
+      if (stdout) callback(stdout);
+    });
+    /*
     var run = spawn('judging/judge.out', ['judging/out/' + id + '.txt', 'judging/test/' + problem.number.toString() + '/', problem.cases.toString()]);
     run.stdout.on('data', data => {
       console.log(1);
@@ -36,6 +42,12 @@ function compile (py, problem, callback) {
         if (err) throw err;
       });
     });
+    */
+   judge.on('exit', () => {
+    exec('rm judging/temp/' + id + '.py && rm judging/out/' + id + '.txt', (err, stdout, stderr) => {
+      if (err) throw err;
+    });
+   })
   });
 }
 module.exports = compile;
