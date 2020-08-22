@@ -14,5 +14,5 @@ Then execute following on node.js (on linux, keep ./; on windows remove)
 ```
 ie.
 ```
-./judge.out Judging/Inputs/P1.txt Judging/Tests/P1/ 2
+./judge.out Judging/Output/P1.txt Judging/Tests/P1/ 2
 ```
