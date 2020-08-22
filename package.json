@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "tsc && parcel build src/web/index.pug --out-dir dist/public/ && node dist/server.js",
+		"dev": "tsc && parcel build src/web/index.pug --out-dir build/public/ && node build/server.js",
 		"serve": "parcel src/web/index.pug --open"
 	},
 	"repository": {
@@ -19,9 +19,11 @@
 	},
 	"homepage": "https://github.com/RuyiLi/BlockOJ#readme",
 	"dependencies": {
+		"blockly": "^3.20200625.2",
 		"bulma": "^0.9.0",
 		"express": "^4.17.1",
-		"normalize.css": "^8.0.1"
+		"normalize.css": "^8.0.1",
+		"uuid": "^8.3.0"
 	},
 	"devDependencies": {
 		"@types/express": "^4.17.7",
