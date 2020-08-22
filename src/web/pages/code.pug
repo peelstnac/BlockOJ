@@ -6,6 +6,7 @@ block head
 	script(defer src='/js/blockly-loader.js')
 
 block body
+	button#compile Compile
 	table
 		div#blockly-area
 	div#blockly-container(style='position: absolute;')
@@ -46,6 +47,7 @@ block body
 		category(name='Math' colour='#5b67a5')
 			block(type='math_number')
 				field(name='NUM') 0
+			block(type='math_convertToNumber')
 			block(type='math_arithmetic')
 				field(name='OP') ADD
 				value(name='A')
@@ -161,9 +163,6 @@ block body
 			block(type='text_prompt_ext')
 				mutation(type='TEXT')
 				field(name='TYPE') TEXT
-				value(name='TEXT')
-					shadow(type='text')
-						field(name='TEXT') abc
 		category(name='Lists' colour='#745ba5')
 			block(type='lists_create_with')
 				mutation(items='0')
@@ -210,30 +209,19 @@ block body
 			block(type='lists_sort')
 				field(name='TYPE') NUMERIC
 				field(name='DIRECTION') 1
-		category(name='Colour' colour='#a5745b')
-			block(type='colour_picker')
-				field(name='COLOUR') #ff0000
-			block(type='colour_random')
-			block(type='colour_rgb')
-				value(name='RED')
-					shadow(type='math_number')
-						field(name='NUM') 100
-				value(name='GREEN')
-					shadow(type='math_number')
-						field(name='NUM') 50
-				value(name='BLUE')
-					shadow(type='math_number')
-						field(name='NUM') 0
-			block(type='colour_blend')
-				value(name='COLOUR1')
-					shadow(type='colour_picker')
-						field(name='COLOUR') #ff0000
-				value(name='COLOUR2')
-					shadow(type='colour_picker')
-						field(name='COLOUR') #3333ff
-				value(name='RATIO')
-					shadow(type='math_number')
-						field(name='NUM') 0.5
+		category(name='Input/Output' colour='#ff8503')
+			block(type='text_print')
+				value(name='TEXT')
+					shadow(type='text')
+						field(name='TEXT') abc
+			block(type='text_prompt_ext')
+				mutation(type='TEXT')
+			block(type='lists_split')
+				mutation(mode='SPLIT')
+				field(name='MODE') SPLIT
+				value(name='DELIM')
+					shadow(type='text')
+						field(name='TEXT') ,
 		sep
 		category(name='Variables' colour='#a55b80' custom='VARIABLE')
 		category(name='Functions' colour='#995ba5' custom='PROCEDURE')
