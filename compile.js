@@ -18,6 +18,10 @@ function compile (js, callback) {
   // Write the .js file
   fs.writeFileSync(path.join('Judging', id, 'submission.js'), js);
   // Compile
+
+
+
+  
   exec('rm -r Judging/' + id, (err, stdout, stderr) => {
     if (err) {
       throw err;
