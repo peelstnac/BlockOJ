@@ -1,9 +1,17 @@
 // Testing judge
 const compile = require('./compile.js');
 var py = `
-n = int(input())
+# Blockly uses text_prompt
+
+def text_prompt(msg):
+  try:
+    return raw_input(msg)
+  except NameError:
+    return input(msg)
+
+n = int(text_prompt(''))
 for i in range(n):
-  x = int(input())
+  x = int(text_prompt(''))
   print(x*x)
 `
 var problem = {
