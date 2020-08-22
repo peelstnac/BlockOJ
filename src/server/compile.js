@@ -4,18 +4,41 @@ const { exec, spawn } = require("child_process");
 const fs = require('fs');
 const path = require('path');
 /*
-py is string of python program to be judged
+js is string of JavaScript program to be judged
 problem = {
   number: INT,
   cases: INT
 };
 */
-function compile (py, problem, callback) {
+function compile (js, problem, callback) {
+
+  const insert = String.raw`
+  // INSERT INTO BEGINNING OF EVERY SUBMISSION
+  const fs = require('fs');
+  var COMPILE_ln = 0;
+  var COMPILE_stdin = fs.readFileSync(0, 'utf-8').toString().split(/\r?\n/);
+  const window = {
+      prompt: () => {
+          if (COMPILE_ln + 1> COMPILE_ln.length) {
+          return '';
+      }
+      return COMPILE_stdin[COMPILE_ln++];
+      },
+      alert: (x) => {
+          console.log(x);
+      }
+  }
+
+  `
+  // Insert
+  js = insert + js;
+
   // Assign unique ID to submission
   var id = uuidv4();
+
   // Create all the files
-  fs.writeFileSync(path.join('judging/temp', id + '.py'), py);
-  var createFiles = exec('cat judging/in/' + problem.number.toString() + '.txt | ' + 'python3 judging/temp/' + id + '.py > judging/out/' + id + '.txt', (err, stdout, stderr) => {
+  fs.writeFileSync(path.join('judging/temp', id + '.js'), js);
+  var createFiles = exec('cat judging/in/' + problem.number.toString() + '.txt | ' + 'node judging/temp/' + id + '.js > judging/out/' + id + '.txt', (err, stdout, stderr) => {
     if (err) throw err;
   });
   createFiles.on('exit', () => {
@@ -44,7 +67,7 @@ function compile (py, problem, callback) {
     });
     */
    judge.on('exit', () => {
-    exec('rm judging/temp/' + id + '.py && rm judging/out/' + id + '.txt', (err, stdout, stderr) => {
+    exec('rm judging/temp/' + id + '.js && rm judging/out/' + id + '.txt', (err, stdout, stderr) => {
       if (err) throw err;
     });
    })

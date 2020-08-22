@@ -18,25 +18,20 @@ Rough idea of how to use
 ```js
 // Testing judge
 const compile = require('./compile.js');
-var py = `
-# Blockly uses text_prompt
 
-def text_prompt(msg):
-  try:
-    return raw_input(msg)
-  except NameError:
-    return input(msg)
+var js = `
+var n = Number(window.prompt(''));
+for (let i = 0; i < n; i++) {
+    var x = Number(window.prompt(''));
+    window.alert(x*x);
+}
+`;
 
-n = int(text_prompt(''))
-for i in range(n):
-  x = int(text_prompt(''))
-  print(x*x)
-`
 var problem = {
     number: 0,
     cases: 4
 }
-compile(py, problem, (response) => {
+compile(js, problem, (response) => {
     console.log(response);
     // This callback is called ONCE at the end of judging
 });
