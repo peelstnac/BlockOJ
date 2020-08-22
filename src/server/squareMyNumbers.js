@@ -23,7 +23,6 @@ for (let i = 0; i < n; i++) {
     window.alert(x*x);
 }
 `;
-
 var problem = {
     number: 0,
     cases: 4
