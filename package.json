@@ -1,30 +1,33 @@
 {
-  "name": "blockoj",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel web/index.pug --open"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RuyiLi/BlockOJ.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RuyiLi/BlockOJ/issues"
-  },
-  "homepage": "https://github.com/RuyiLi/BlockOJ#readme",
-  "dependencies": {
-    "bulma": "^0.9.0",
-    "express": "^4.17.1",
-    "normalize.css": "^8.0.1",
-    "parcel": "^1.12.4"
-  },
-  "devDependencies": {
-    "pug": "^3.0.0",
-    "sass": "^1.26.10"
-  }
+	"name": "blockoj",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsc && parcel build src/web/index.pug --out-dir dist/public/ && node dist/server.js",
+		"serve": "parcel src/web/index.pug --open"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RuyiLi/BlockOJ.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/RuyiLi/BlockOJ/issues"
+	},
+	"homepage": "https://github.com/RuyiLi/BlockOJ#readme",
+	"dependencies": {
+		"bulma": "^0.9.0",
+		"express": "^4.17.1",
+		"normalize.css": "^8.0.1"
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.7",
+		"parcel": "^1.12.4",
+		"pug": "^3.0.0",
+		"sass": "^1.26.10",
+		"typescript": "^4.0.2"
+	}
 }
