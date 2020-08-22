@@ -10,9 +10,9 @@ gcc judge.c -o judge.out
 ```
 Then execute following on node.js (on linux, keep ./; on windows remove)
 ```
-./judge.o [PATH TO USER OUTPUT] [PATH TO FOLDER WITH OFFICIAL OUTPUT] [TOTAL # OF TEST CASES]
+./judge.out [PATH TO USER OUTPUT] [PATH TO FOLDER WITH OFFICIAL OUTPUT] [TOTAL # OF TEST CASES]
 ```
 ie.
 ```
-./judge.o input.txt Tests/P1/ 2
+./judge.out Judging/Inputs/P1.txt Judging/Tests/P1/ 2
 ```
