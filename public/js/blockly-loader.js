@@ -36,10 +36,10 @@ window.addEventListener('resize', resizeBlocklyContainer, false);
 resizeBlocklyContainer();
 Blockly.svgResize(workspace);
 
-
+const verdictPre = $('#verdict');
 $('#submit').addEventListener('click', async function () {
 	const code = compile(workspace);
-	const verdict = await fetch('/submit', {
+	const res = await fetch('/submit', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -49,7 +49,12 @@ $('#submit').addEventListener('click', async function () {
 			name,
 		})
 	});
-	console.log(await verdict.json())
+	const { verdict } = await res.json();
+	verdictPre.innerText = '';
+	let caseNum = 1;
+	for (const result of verdict.trim().split('\n')) {
+		verdictPre.innerText += `Case #${caseNum++}: ${result}\n`;
+	}
 });
 
 
