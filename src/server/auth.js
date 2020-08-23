@@ -6,6 +6,18 @@ const bcrypt = require('bcrypt');
 const router = Router();
 const saltRounds = 10;
 
+const compile = require('./compile');
+
+router.post('/submit', (req, res) => {
+	var js = req.body.js;
+	var name = req.body.name;
+	compile(js, problem, (verdict) => {
+		res.json({
+			verdict: verdict
+		});
+	});
+});
+
 router.get('/logout', (req, res) => {
 	req.session.destroy();
 	res.redirect('/');
