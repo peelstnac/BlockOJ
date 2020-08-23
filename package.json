@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tsc && parcel build src/web/index.pug --out-dir build/public/ && node build/server.js",
-		"dev": "NODE_ENV=DEVELOPMENT && npm run build",
+		"build": "cp -r src/server/* build/ && parcel build src/web/index.pug --out-dir build/public/",
+		"dev": "NODE_ENV=DEVELOPMENT && node build/server.js",
 		"serve": "parcel src/web/index.pug --open"
 	},
 	"repository": {

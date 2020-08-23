@@ -3,7 +3,8 @@
 
 `npm run build` - Compiles source files into the `build` folder.
  
- `npm run dev` - Runs `build` script and starts the web server on the specified port (defaults to 8000).
+ `npm run dev` - Starts the web server on the specified port (defaults to 8000).
+Run `build` before running `dev` if any changes have been made. 
 
 ## Judging
 
