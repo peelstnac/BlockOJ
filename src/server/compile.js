@@ -84,7 +84,8 @@ function compile(js, problem, callback) {
 		});
 		*/
 		judge.on('exit', () => {
-			exec('rm judging/temp/' + id + '.js && rm judging/out/' + id + '.txt', (err, stdout, stderr) => {
+			execStr = 'rm judging/temp/' + id + '.js && rm judging/out/' + id + '.txt';
+			exec(execStr.replace(/judging/g, JUDGE_ROOT), (err, stdout, stderr) => {
 				if (err) throw err;
 			});
 		})

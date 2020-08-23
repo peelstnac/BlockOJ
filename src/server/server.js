@@ -54,7 +54,7 @@ app.use(session({
 	saveUninitialized: false,
 	cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
 	genid: uuidv4,
-	// pool,
+	pool,
 }));
 
 // endregion
@@ -62,7 +62,9 @@ app.use(session({
 app.get('/', async (req, res) => {
 	const problems = await fetchProblems();
 	console.log(problems);
-	res.render('index', { problems });
+	res.render('index', {
+		problems
+	});
 });
 
 app.get('/code', (req, res) => {
