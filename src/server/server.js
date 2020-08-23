@@ -3,8 +3,7 @@ const sassMiddleware = require('node-sass-middleware');
 const { v4: uuidv4 } = require('uuid');
 
 const { pool } = require('./database');
-const authRouter = require('./routes/auth');
-const { fetchProblems } = require('./problem-reader');
+const authRouter = require('./auth');
 
 const session = require('express-session');
 const express = require('express');
@@ -15,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 const DEV = process.env.NODE_ENV !== 'PRODUCTION'
 
 if (DEV) {
-    require('dotenv').config();
+	require('dotenv').config();
 }
 
 // region Express configuration
@@ -27,14 +26,14 @@ if (app.get('env') === 'production') {
 }
 
 // Set Pug as templating engine
-app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '..', 'views'));
+app.set('view engine', 'pug');
 
 // Static file server middleware
 app.use(express.static(path.join(__dirname, '../..', 'public')));
 
 app.use(express.urlencoded({
-    extended: true
+	extended: true
 }));
 
 // SASS Server
@@ -57,19 +56,16 @@ app.use(session({
 
 // endregion
 
-app.get('/', async (req, res) => {
-	const problems = await fetchProblems();
-	console.log(problems);
-    res.render('index', { problems });
+app.get('/', (req, res) => {
+	res.render('index');
 });
 
 app.get('/code', (req, res) => {
-    res.render('pages/code');
+	res.render('pages/code');
 });
 
 app.use('/', authRouter);
 
 app.listen(PORT, function () {
 	console.log(`Listening on http://localhost:${PORT}`);
-	fetchProblems();
 });

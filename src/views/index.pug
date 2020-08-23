@@ -5,5 +5,8 @@ block head
 	link(rel='stylesheet' href='/style/index.css' type='text/css')
 
 block body
-	div
-		p hello world
+	table
+		each problem in problems
+			tr
+				td= problem.name
+				td= problem.tags.join(', ')
