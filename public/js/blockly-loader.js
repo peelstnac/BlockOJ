@@ -36,7 +36,21 @@ window.addEventListener('resize', resizeBlocklyContainer, false);
 resizeBlocklyContainer();
 Blockly.svgResize(workspace);
 
-$('#compile').addEventListener('click', () => compile(workspace));
+
+$('#submit').addEventListener('click', async function () {
+	const code = compile(workspace);
+	const verdict = await fetch('/submit', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			js: code,
+			name,
+		})
+	});
+	console.log(await verdict.json())
+});
 
 
 console.log(workspace);

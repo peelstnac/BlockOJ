@@ -1,0 +1,6 @@
+#blockly-area {
+  min-height: 70vh;
+  height: 100%; }
+
+.blocklyToolboxDiv {
+  padding: 10px; }

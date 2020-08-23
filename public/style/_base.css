@@ -1,14 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap");
 html, body {
   height: 100%;
-  background: #ededed;
   font-family: 'Rubik',BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
 
 body {
-  padding: calc(3.25rem + 3vw) 3vw 3vw; }
-
-table#problems {
-  background-color: #f39f07; }
-
-table#problems-solved td {
-  font-size: 1.25rem !important; }
+  padding: calc(3.25rem + 3vw) 3vw 3vw;
+  background: #ededed; }

@@ -4,6 +4,8 @@ const { exec, spawn } = require("child_process");
 const fs = require('fs');
 const path = require('path');
 
+const JUDGE_ROOT = path.resolve(__dirname, 'judging');
+
 /*
 js is string of JavaScript program to be judged
 problem = {
@@ -51,14 +53,17 @@ function compile (js, problem, callback) {
   var id = uuidv4();
 
   // Create all the files
-  fs.writeFileSync(path.join('judging', 'temp', id + '.js'), js.toString());
+  fs.writeFileSync(path.join(JUDGE_ROOT, 'temp', id + '.js'), js.toString(), { flag: 'w' });
 
-  var createFiles = exec('cat judging/in/' + problem.number.toString() + '.txt | ' + 'node judging/temp/' + id + '.js > judging/out/' + id + '.txt', (err, stdout, stderr) => {
+  let execStr = 'cat judging/in/' + problem.number.toString() + '.txt | ' + 'node judging/temp/' + id + '.js > judging/out/' + id + '.txt';
+
+  var createFiles = exec(execStr.replace(/judging/g, JUDGE_ROOT), (err, stdout, stderr) => {
     if (err) throw err;
   });
   createFiles.on('exit', () => {
     // Judge
-    var judge = exec('judging/judge.out judging/out/' + id + '.txt judging/test/' + problem.number.toString() + '/ ' + problem.cases.toString(), (err, stdout, stderr) => {
+  	execStr = 'judging/judge.out judging/out/' + id + '.txt judging/test/' + problem.number.toString() + '/ ' + problem.cases.toString();
+    var judge = exec(execStr.replace(/judging/g, JUDGE_ROOT), (err, stdout, stderr) => {
       if (err) throw err;
       if (stderr) callback(stderr);
       if (stdout) callback(stdout);

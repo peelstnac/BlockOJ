@@ -9,8 +9,17 @@ const saltRounds = 10;
 const compile = require('./compile');
 
 router.post('/submit', (req, res) => {
-	var js = req.body.js;
-	var name = req.body.name;
+	console.log(req.body);
+	const { js, name } = req.body;
+
+	let problem;
+
+	if (name === 'aplusb') {
+		problem = {
+			number: 1,
+			cases: 5
+		}
+	}
 
 	// Math name to probk
 	compile(js, problem, (verdict) => {
@@ -28,7 +37,7 @@ router.get('/logout', (req, res) => {
 router.get('/login', ({ session }, res) => {
 	// No need to login again
 	if (session.auth) res.redirect('/');
-	else res.render('pages/login');
+	else res.render('login');
 });
 
 router.post('/login', async (req, res) => {
@@ -73,7 +82,7 @@ router.get('/register', ({ session }, res) => {
 	// FIXME Not sure if we need the else? Idk if express stops the
 	// function as soon as we call redirect or whatever
 	if (session.auth) res.redirect('/');
-	else res.render('pages/register');
+	else res.render('register');
 });
 
 router.post('/register',  (req, res) => {

@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const { pool } = require('./database');
 const authRouter = require('./auth');
+const problemRouter = require('./problems');
 const { fetchProblems } = require('./problem-reader');
 
 const session = require('express-session');
@@ -29,12 +30,11 @@ if (app.get('env') === 'production') {
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '..', 'views'));
 
-// Static file server middleware
-app.use(express.static(path.join(__dirname, '../..', 'public')));
 
 app.use(express.urlencoded({
 	extended: true
 }));
+app.use(express.json());
 
 // SASS Server
 app.use(sassMiddleware({
@@ -42,6 +42,9 @@ app.use(sassMiddleware({
 	dest: path.join(__dirname, '../..', 'public'),
 	debug: DEV,
 }));
+
+// Static file server middleware
+app.use(express.static(path.join(__dirname, '../..', 'public')));
 
 // Mount session store
 app.use(session({
@@ -63,10 +66,11 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/code', (req, res) => {
-	res.render('pages/code');
+	res.render('code');
 });
 
 app.use('/', authRouter);
+app.use('/problems', problemRouter);
 
 app.listen(PORT, function () {
 	console.log(`Listening on http://localhost:${PORT}`);

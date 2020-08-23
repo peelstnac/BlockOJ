@@ -1,10 +1,11 @@
-extends ../layout
+extends layout
 
 block head
-	link(rel='stylesheet' href='/style/_base.css' type='text/css')
-	link(rel='stylesheet' href='/style/blockly.css' type='text/css')
+	title BlockOJ - #{problem.name}
 
-	//script(defer type='text/javascript' src='/js/blockly/browser.js')
+	link(rel='stylesheet' href='/style/blockly.css' type='text/css')
+	link(rel='stylesheet' href='/style/problem.css' type='text/css')
+
 	script(defer type='text/javascript' src='/js/blockly/blockly_compressed.js')
 	script(defer type='text/javascript' src='/js/blockly/blocks_compressed.js')
 	script(defer type='text/javascript' src='/js/blockly/msg/js/en.js')
@@ -15,10 +16,42 @@ block head
 	script(defer type='text/javascript' src='/js/blockly-util/custom-blocks.js')
 	script(defer type='text/javascript' src='/js/blockly-loader.js')
 
+	script.
+		const name = '#{problem.name}'
+
 block body
-	button#compile Compile
-	table
-		div#blockly-area
+	button.button.is-success.is-size-4#submit Submit
+	div.columns
+		div.column.is-3
+			div.box
+				div.columns
+					div.column
+						h1.title= problem.readableName
+					div.column
+						- const diff = ['Easy', 'Medium', 'Hard'][problem.difficulty]
+						a.button#diff(class=diff)= diff
+				p !{problem.statement}
+
+				h2 Problem Input
+				p !{problem.input}
+				h2 Problem Output
+				p !{problem.output}
+
+				h2 Sample Input
+				pre= problem.sample.in
+				h2 Sample Ouput
+				pre= problem.sample.out
+
+				h2 Explanation
+				p !{problem.explanation}
+
+				h2 Problem Tags
+				each tag in problem.tags
+					span.tag= tag
+
+		div.column
+			table
+				div#blockly-area
 	div#blockly-container(style='position: absolute;')
 	xml#blockly-toolbox(xmlns='https://developers.google.com/blockly/xml' style='display: none')
 		category(name='Logic' colour='#5b80a5')

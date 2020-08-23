@@ -18,7 +18,7 @@ block body
 						each problem in problems
 							tr
 								td
-									a(href='/problems/' + problem.name) #{problem.name}
+									a(href='/problems/' + problem.name)= problem.readableName
 								td
 									each tag in problem.tags
 										span.tag= tag
