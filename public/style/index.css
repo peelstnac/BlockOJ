@@ -7,7 +7,7 @@ html, body {
 body {
   padding: calc(3.25rem + 3vw) 3vw 3vw; }
 
-table#problems {
+table#problems th {
   background-color: #f39f07; }
 
 table#problems-solved td {

@@ -37,7 +37,11 @@ resizeBlocklyContainer();
 Blockly.svgResize(workspace);
 
 const verdictPre = $('#verdict');
+const statusStr = $('#status');
 $('#submit').addEventListener('click', async function () {
+	statusStr.innerText = 'Status: Running...';
+	statusStr.classList.add('has-text-warning');
+
 	const code = compile(workspace);
 	const res = await fetch('/submit', {
 		method: 'POST',
@@ -54,6 +58,28 @@ $('#submit').addEventListener('click', async function () {
 	let caseNum = 1;
 	for (const result of verdict.trim().split('\n')) {
 		verdictPre.innerText += `Case #${caseNum++}: ${result}\n`;
+	}
+
+	statusStr.classList.remove('has-text-warning');
+	statusStr.classList.remove('has-text-success');
+	statusStr.classList.remove('has-text-danger');
+	if (verdict.includes('WA')) {
+		statusStr.innerText = `Status: Wrong Answer (Failed on Case #${caseNum - 1})`;
+		statusStr.classList.add('has-text-danger');
+	} else {
+		statusStr.innerText = 'Status: Accepted!';
+		statusStr.classList.add('has-text-success');
+
+		if (!localStorage.getItem('solved'))
+			localStorage.setItem('solved', '[]');
+		const solved = JSON.parse(localStorage.solved);
+		const problem = { name, diff };
+		for (const prob of solved) {
+			// Already solved, don't credit
+			if (prob.name === name) return;
+		}
+		solved.push(problem);
+		localStorage.solved = JSON.stringify(solved);
 	}
 });
 

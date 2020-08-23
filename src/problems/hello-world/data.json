@@ -1,0 +1,14 @@
+{
+	"name": "helloworld",
+	"readableName": "Hello, World!",
+	"statement": "Print the string \"Hello, World!\", without the quotes.",
+	"input": "None!",
+	"output": "The string \"Hello, World!\", without the quotes.",
+	"difficulty": 0,
+	"sample": {
+		"in": "",
+		"out": "Hello, World!"
+	},
+	"explanation": "",
+	"tags": [ "implementation" ]
+}

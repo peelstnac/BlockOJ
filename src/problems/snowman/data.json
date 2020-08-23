@@ -1,0 +1,14 @@
+{
+	"name": "snowman",
+	"readableName": "Snowman",
+	"statement": "Sistine wants to build a snowman from 3 large balls of snow! She will build the snowman by placing the largest ball on the ground, the second-largest ball on top of the largest ball, and finally, the smallest ball on the very top. Given that the 3 balls have a size of <code>A</code>, <code>B</code>, and <code>C</code>, what is the size of the snowball that goes in the middle?",
+	"input": "The first line of input will contain 3 numbers: <code>A</code>, <code>B</code>, and <code>C</code>.",
+	"output": "Print the size of the snowball that will go in the middle.",
+	"difficulty": 2,
+	"sample": {
+		"in": "7 4 5",
+		"out": "5"
+	},
+	"explanation": "The largest snowball has a size of 7, and the next largest snowball has a size of 5. This snowball will be the middle snowball, so we print its size.",
+	"tags": [ "math" ]
+}

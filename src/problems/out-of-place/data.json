@@ -1,0 +1,14 @@
+{
+	"name": "outofplace",
+	"readableName": "Out of Place",
+	"statement": "Glenn has a deck of <code>N</code> cards, labelled from 1 to N. One day, he accidentally dropped his deck and lost some of his cards! Now, he only has some of his cards left from his deck. Can you help him identify all the missing cards?",
+	"input": "The first line of input will contain a number <code>N</code>. The second line of input will contain some numbers separated by a space, representing the cards he has left, sorted in increasing order.",
+	"output": "Print all the cards missing from his deck, each on its own line, in increasing order.",
+	"difficulty": 2,
+	"sample": {
+		"in": "5\n1 3 4",
+		"out": "2\n5"
+	},
+	"explanation": "Glenn's original deck has 5 cards labelled 1, 2, 3, 4, and 5. After dropping some, he is left with the cards 1, 3, and 4. Therefore, the missing cards are 2 and 5.",
+	"tags": [ "implementation" ]
+}

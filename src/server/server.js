@@ -74,7 +74,14 @@ app.get('/code', (req, res) => {
 app.use('/', authRouter);
 app.use('/problems', problemRouter);
 
-app.listen(PORT, function () {
-	console.log(`Listening on http://localhost:${PORT}`);
-	fetchProblems();
-});
+if (process.env.NODE_ENV !== 'PRODUCTION') {
+	app.listen(PORT, function () {
+		console.log(`Listening on http://localhost:${PORT}`);
+		fetchProblems();
+	});
+} else {
+	app.listen(PORT, '0.0.0.0', function () {
+		console.log(`Listening on port ${PORT}`);
+		fetchProblems();
+	});
+}
