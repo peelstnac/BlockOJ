@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+
+$family-primary: 'Rubik';
+
+@import '../../node_modules/bulma/sass/utilities/all';
+@import '../../node_modules/bulma/sass/base/all';
+@import '../../node_modules/bulma/sass/helpers/all';
+
+@import '../../node_modules/bulma/sass/components/navbar';
+@import '../../node_modules/bulma/sass/grid/columns';
+
+html, body {
+	height: 100%;
+}
+
+body {
+	padding: calc(#{$navbar-height} + 3vw) 3vw 3vw;
+	background: #ededed;
+}

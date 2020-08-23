@@ -31,4 +31,4 @@ async function transact (queryString, params) {
 	}
 }
 
-module.exports = { query, transact };
+module.exports = { query, transact, pool };
