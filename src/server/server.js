@@ -3,7 +3,7 @@ const sassMiddleware = require('node-sass-middleware');
 const { v4: uuidv4 } = require('uuid');
 
 const { pool } = require('./database');
-const authRouter = require('./routes/auth');
+const authRouter = require('./auth');
 
 const session = require('express-session');
 const express = require('express');
