@@ -58,6 +58,7 @@ Blockly.Msg['TEXT_PROMPT_TYPE_TEXT'] = 'prompt for text';
 
 function compile (workspace) {
 	const code = Blockly.JavaScript.workspaceToCode(workspace);
+	console.log(code);
 	try {
 		const result = eval(code);
 		console.log(result);

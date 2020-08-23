@@ -1,19 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
 
-$family-primary: 'Rubik';
-
-@import '../../node_modules/bulma/sass/utilities/all';
-@import '../../node_modules/bulma/sass/base/all';
-@import '../../node_modules/bulma/sass/helpers/all';
-
-@import '../../node_modules/bulma/sass/components/navbar';
-@import '../../node_modules/bulma/sass/grid/columns';
+$accent: #f39f07;
 
 html, body {
 	height: 100%;
+	font-family: 'Rubik',BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 body {
-	padding: calc(#{$navbar-height} + 3vw) 3vw 3vw;
+	padding: calc(3.25rem + 3vw) 3vw 3vw;
 	background: #ededed;
 }

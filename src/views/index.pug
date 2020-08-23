@@ -5,8 +5,38 @@ block head
 	link(rel='stylesheet' href='/style/index.css' type='text/css')
 
 block body
-	table
-		each problem in problems
-			tr
-				td= problem.name
-				td= problem.tags.join(', ')
+	div.container
+		h1.title Problems
+		div.columns
+			div.column.is-8
+				div.box
+					table.table.is-striped.is-fullwidth#problems
+						tr
+							th Problem Name
+							th Problem Tags
+							th Difficulty
+						each problem in problems
+							tr
+								td
+									a(href='/problems/' + problem.name) #{problem.name}
+								td
+									each tag in problem.tags
+										span.tag= tag
+								td= ['Easy', 'Medium', 'Hard'][problem.difficulty]
+			div.column
+				div.box
+					h1.mt-0 Your Profile
+					h2.subtitle Problems Solved
+					table.table.is-fullwidth#problems-solved
+						tr
+							td
+								span.tag.is-success.is-size-6 Easy
+							td 0
+						tr
+							td
+								span.tag.is-warning.is-size-6 Medium
+							td 0
+						tr
+							td
+								span.tag.is-danger.is-size-6 Hard
+							td 0

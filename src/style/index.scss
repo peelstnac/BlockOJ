@@ -1,2 +1,14 @@
 @import 'base';
 
+table {
+	&#problems {
+		background-color: $accent;
+	}
+
+	&#problems-solved {
+		td {
+			font-size: 1.25rem!important;
+		}
+	}
+
+}

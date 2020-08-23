@@ -23,15 +23,18 @@ html(lang='en')
 		// script(async type='module' src='/js/fa-loader.js')
 		// script(defer src='/js/component-loader.js')
 
+		link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css' type='text/css')
+
 		block head
 			link(rel='stylesheet' href='/style/_base.css' type='text/css')
 
 		link(rel='stylesheet' href='/style/normalize.css' type='text/css')
 
 	body
-		nav.navbar.is-fixed-top(aria-live="polite")
+		nav.navbar.is-fixed-top.px-4(aria-live="polite")
 			div.navbar-menu
 				div.navbar-start
+					a.navbar-item(href='/') Home
 					a.navbar-item(href='/code') Code
 				div.navbar-end
 					a.navbar-item(href='/login') Login
