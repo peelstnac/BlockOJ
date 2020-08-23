@@ -10,7 +10,7 @@ On BlockOJ, users can sign up and use our lego-like code editor to solve instruc
 
 Our lightning fast judge, painstakingly written in C, will provide instantaneous feedbeck on the correctness of your solution (ie. how many of the test cases did your program evaluate correctly?).
 
-INSERT IMAGE HERE
+![Figure 2. Image of entire judge submission page](https://i.imgur.com/wYDWXaj.png)
 
 ## Inspiration and Design Motivation
 
@@ -34,4 +34,5 @@ Here's the tl;dr version.
 - Postgresql
 - NodeJS
 - Express
+- SaSS/Pug
 - ...and last but not least, our beloved trio, HTML/CSS/JavaScript

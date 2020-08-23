@@ -27,6 +27,8 @@ router.post('/submit', (req, res) => {
 			verdict: verdict,
 			username: req.session.username
 		});
+
+		console.log(1);
 	});
 });
 
