@@ -11,6 +11,8 @@ const compile = require('./compile');
 router.post('/submit', (req, res) => {
 	var js = req.body.js;
 	var name = req.body.name;
+
+	// Math name to probk
 	compile(js, problem, (verdict) => {
 		res.json({
 			verdict: verdict

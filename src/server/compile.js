@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 const { exec, spawn } = require("child_process");
 const fs = require('fs');
 const path = require('path');
+
 /*
 js is string of JavaScript program to be judged
 problem = {
@@ -28,16 +29,30 @@ function compile (js, problem, callback) {
           console.log(x);
       }
   }
-
   `
+
+  const LEFT =`
+
+  var __MD792 = window.prompt('');
+  while(__MD792--) {
+
+  `;
+
+  const RIGHT =`
+
+  }
+
+  `;
+
   // Insert
-  js = insert + js;
+  js = insert + LEFT + js + RIGHT;
 
   // Assign unique ID to submission
   var id = uuidv4();
 
   // Create all the files
-  fs.writeFileSync(path.join('judging/temp', id + '.js'), js);
+  fs.writeFileSync(path.join('judging', 'temp', id + '.js'), js.toString());
+
   var createFiles = exec('cat judging/in/' + problem.number.toString() + '.txt | ' + 'node judging/temp/' + id + '.js > judging/out/' + id + '.txt', (err, stdout, stderr) => {
     if (err) throw err;
   });
