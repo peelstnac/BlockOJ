@@ -13,7 +13,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DEV = process.env.NODE_ENV !== 'PRODUCTION'
 
-
 if (DEV) {
     require('dotenv').config();
 }
