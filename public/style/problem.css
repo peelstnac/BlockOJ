@@ -9,9 +9,9 @@ body {
 
 #diff {
   position: relative;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  top: calc(50% - 20px);
+  height: 40px;
+  width: 100%;
   cursor: default !important; }
   #diff.Easy {
     background: #48c774;

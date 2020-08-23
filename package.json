@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "NODE_ENV=DEVELOPMENT && node src/server/server.js",
+		"build-judge": "gcc src/server/judging/judge.c -o src/server/judging/judge.out",
 		"serve": "parcel src/web/index.pug --open"
 	},
 	"repository": {

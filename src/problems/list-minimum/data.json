@@ -1,0 +1,14 @@
+{
+	"name": "listminimum",
+	"readableName": "List Minimum",
+	"statement": "Given a list of numbers, can you return the smallest number?",
+	"input": "The first line will contain some numbers separated by a space.",
+	"output": "Print the smallest number out of the numbers in the input.",
+	"difficulty": 0,
+	"sample": {
+		"in": "3 4 5 1 4",
+		"out": "1"
+	},
+	"explanation": "Our list consists of 5 numbers - 3, 4, 5, 1, and 4. Out of these 5, 1 is the smallest.",
+	"tags": [ "list", "implementation" ]
+}

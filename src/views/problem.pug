@@ -18,6 +18,7 @@ block head
 
 	script.
 		const name = '#{problem.name}'
+		const diff = #{problem.difficulty}
 
 block body
 	button.button.is-success.is-size-4#submit Submit
@@ -27,7 +28,7 @@ block body
 				div.columns
 					div.column
 						h1.title= problem.readableName
-					div.column
+					div.column.is-4
 						- const diff = ['Easy', 'Medium', 'Hard'][problem.difficulty]
 						a.button#diff(class=diff)= diff
 				p !{problem.statement}
@@ -55,6 +56,7 @@ block body
 			div.box.mt-5
 				h1.mt-1 Verdict
 				p AC means "Accepted", while WA means "Wrong Answer".
+				strong#status Status: Waiting for submission
 				pre#verdict Run your code by pressing the green "Submit" button in the bottom-right!
 	div#blockly-container(style='position: absolute;')
 	xml#blockly-toolbox(xmlns='https://developers.google.com/blockly/xml' style='display: none')
