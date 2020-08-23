@@ -1,48 +1,37 @@
-## Scripts
-`npm run serve` - Start the frontend development server and opens the home page in the default browser. Runs on port 1234 by default. Supports HMR.
+# BlockOJ
+> Boundless creativity.
 
-`npm run build` - Compiles source files into the `build` folder.
- 
- `npm run dev` - Starts the web server on the specified port (defaults to 8000).
-Run `build` before running `dev` if any changes have been made. 
+## What is BlockOJ?
+BlockOJ is an online judge built around Google's Blockly library that teaches children how to code. The library allows us to implement a code editor which lets the user program with various blocks (function blocks, variable blocks, etc.).
 
-## Judging
+![Figure 1. Image of BlockOJ Editor](https://i.imgur.com/UOmBhL4.png)
 
-BE SURE TO USE LINUX FOR SAMPLE JUDGE
+On BlockOJ, users can sign up and use our lego-like code editor to solve instructive programming challenges! Solutions can be verified by pitting them against numerous test cases hidden in our servers :) -- simply click the "submit" button and we'll take care of the rest.
 
-SAMPLE JUDGE
-```
-cd src/server
-gcc judging/judge.c -o judging/judge.out
-node squareMyNumbers.js
-```
+Our lightning fast judge, painstakingly written in C, will provide instantaneous feedbeck on the correctness of your solution (ie. how many of the test cases did your program evaluate correctly?).
 
-Rough idea of how to use
-```js
-// Testing judge
-const compile = require('./compile.js');
+INSERT IMAGE HERE
 
-var js = `
-var n = Number(window.prompt(''));
-for (let i = 0; i < n; i++) {
-    var x = Number(window.prompt(''));
-    window.alert(x*x);
-}
-`;
+## Inspiration and Design Motivation
 
-var problem = {
-    number: 0,
-    cases: 4
-}
-compile(js, problem, (response) => {
-    console.log(response);
-    // This callback is called ONCE at the end of judging
-});
+Back in late June, our team came across the article announcing the "[new Ontario elementary math curriculum to include coding starting in Grade 1](https://www.thestar.com/politics/provincial/2020/06/23/new-ontario-elementary-math-curriculum-to-include-coding-starting-in-grade-1.html)." During Hack The 6ix, we wanted to build a practical application that can aid our hard working elementary school teachers deliver the coding aspect of this new curriculum.
 
-/*
-EACH PROBLEM HAS 1 INPUT FILE: EX. PROBLEM 0 HAS INPUT FILE in/0.txt
-SO FORMAT EACH PROBLEM LIKE THIS: "single input will contain T cases" (ie. in program have to loop T times)
+We wanted a tool that was
+1. Intuitive to use,
+2. Instructive, and most important of all
+3. Engaging
 
-EACH PROBLEM CAN HAVE AS MANY TEST CASE FILES: EX. PROBLEM 0 HAS 4 FILES IN test/0/1.txt, ..., test/0/4.txt
-*/
-```
+Using the Blockly library, we were able to use a code editor which resembles building with LEGO: the block-by-block assembly process is **procedural** and children can easily look at the **big picture** of programming by looking at how the blocks interlock with each other.
+
+Our programming challenges aim to gameify learning. Not only will children using BlockOJ **learn by doing**, but they will also slowly accumulate basic programming know-how through our carefully designed sequence of problems.
+
+Finally, not all our problems are easy. Some are hard (in fact, the problem in our demo is extremely difficult for elementary students). In our opinion, it is beneficial to mix in one or two difficult challenges in problemsets, for they give children the opportunity to gain valuable problem solving experience. Difficult problems also pave room for students to engage with teachers.
+
+## How we built it
+
+Here's the tl;dr version.
+- AWS EC2
+- Postgresql
+- NodeJS
+- Express
+- ...and last but not least, our beloved trio, HTML/CSS/JavaScript

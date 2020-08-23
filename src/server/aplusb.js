@@ -15,7 +15,7 @@ for (var count = 0; count < repeat_end; count++) {
 
 var problem = {
     number: 1,
-    cases: 1
+    cases: 5
 }
 
 compile(js, problem, (verdict) => {
