@@ -24,7 +24,8 @@ router.post('/submit', (req, res) => {
 	// Math name to probk
 	compile(js, problem, (verdict) => {
 		res.json({
-			verdict: verdict
+			verdict: verdict,
+			username: req.session.username
 		});
 	});
 });
@@ -66,6 +67,7 @@ router.post('/login', async (req, res) => {
 					} else {
 						// Successful login
 						req.session.auth = true;
+						req.session.username = username;
 						res.redirect('/');
 					}
 				}
