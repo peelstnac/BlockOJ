@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { query, transact } = require('../database');
+const { query, transact } = require('./database');
 
 const bcrypt = require('bcrypt');
 
