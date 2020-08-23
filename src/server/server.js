@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const { pool } = require('./database');
 const authRouter = require('./routes/auth');
+const { fetchProblems } = require('./problem-reader');
 
 const session = require('express-session');
 const express = require('express');
@@ -12,7 +13,6 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 const DEV = process.env.NODE_ENV !== 'PRODUCTION'
-
 
 if (DEV) {
     require('dotenv').config();
@@ -27,8 +27,8 @@ if (app.get('env') === 'production') {
 }
 
 // Set Pug as templating engine
-app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, '..', 'views'));
 
 // Static file server middleware
 app.use(express.static(path.join(__dirname, '../..', 'public')));
@@ -57,8 +57,10 @@ app.use(session({
 
 // endregion
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+	const problems = await fetchProblems();
+	console.log(problems);
+    res.render('index', { problems });
 });
 
 app.get('/code', (req, res) => {
@@ -69,4 +71,5 @@ app.use('/', authRouter);
 
 app.listen(PORT, function () {
 	console.log(`Listening on http://localhost:${PORT}`);
+	fetchProblems();
 });
