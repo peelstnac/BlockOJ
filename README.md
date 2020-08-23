@@ -25,7 +25,7 @@ Using the Blockly library, we were able to use a code editor which resembles bui
 
 Our programming challenges aim to gameify learning. Not only will children using BlockOJ **learn by doing**, but they will also slowly accumulate basic programming know-how through our carefully designed sequence of problems.
 
-Finally, not all our problems are easy. Some are hard (in fact, the problem in our demo is extremely difficult for elementary students). In our opinion, it is beneficial to mix in one or two difficult challenges in problemsets, for they give children the opportunity to gain valuable problem solving experience. Difficult problems also pave room for students to engage with teachers.
+Finally, not all our problems are easy. Some are hard (in fact, the problem in our demo is extremely difficult for elementary students). In our opinion, it is beneficial to mix in one or two difficult challenges in problemsets, for they give children the opportunity to gain valuable problem solving experience. Difficult problems also pave room for students to engage with teachers. Solutions are saved so children can easily come back to a difficult problem after they gain more experience.
 
 ## How we built it
 
